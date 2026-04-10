@@ -4,7 +4,7 @@
 # After the first successful run:
 #   Repo → Settings → Pages → Build and deployment → Source: Deploy from a branch
 #   Branch: gh-pages  /  Folder: / (root)
-# Site: https://noahli06.github.io/HustlerFit/
+# Site: https://<user>.github.io/<repo>/  (repo name is injected into the build)
 
 name: Deploy to GitHub Pages
 
@@ -30,7 +30,10 @@ jobs:
           node-version: "20"
           cache: npm
       - run: npm ci
-      - run: npm run build
+      - name: Build
+        run: npm run build
+        env:
+          PAGES_BASE: /${{ github.event.repository.name }}/
       - name: Push dist to gh-pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
