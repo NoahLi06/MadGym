@@ -160,10 +160,10 @@ export function App() {
     <div style={styles.page}>
       <header style={styles.header}>
         <div>
-          <h1 style={styles.title}>HustlerFit</h1>
+          <h1 style={styles.title}>MadGym</h1>
           <p style={styles.kicker}>Focus on working out, not waiting in line</p>
           <p style={styles.sub}>
-            Track real-time usage of both the Nick and Bakke
+            Track real-time usage of the Nick and Bakke gyms
           </p>
         </div>
         <div style={styles.controls}>
