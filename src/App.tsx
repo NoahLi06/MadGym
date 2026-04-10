@@ -26,10 +26,14 @@ function formatTime(iso: string): string {
 
 function busyTone(
   loc: LocationCount,
-  pct: number
+  pct: number,
 ): { label: string; bar: string; glow: string } {
   if (loc.IsClosed) {
-    return { label: "Closed", bar: "#64748b", glow: "rgba(100, 116, 139, 0.25)" };
+    return {
+      label: "Closed",
+      bar: "#64748b",
+      glow: "rgba(100, 116, 139, 0.25)",
+    };
   }
   if (!loc.CountCapacityColorEnabled) {
     return { label: "Live", bar: "#5eead4", glow: "rgba(94, 234, 212, 0.2)" };
@@ -38,9 +42,17 @@ function busyTone(
     return { label: "Light", bar: "#34d399", glow: "rgba(52, 211, 153, 0.2)" };
   }
   if (pct < loc.MaxCapacityRange) {
-    return { label: "Busy", bar: loc.MinColor || "#fbbf24", glow: "rgba(251, 191, 36, 0.25)" };
+    return {
+      label: "Busy",
+      bar: loc.MinColor || "#fbbf24",
+      glow: "rgba(251, 191, 36, 0.25)",
+    };
   }
-  return { label: "Packed", bar: loc.MaxColor || "#f87171", glow: "rgba(248, 113, 113, 0.25)" };
+  return {
+    label: "Packed",
+    bar: loc.MaxColor || "#f87171",
+    glow: "rgba(248, 113, 113, 0.25)",
+  };
 }
 
 function uniqueFacilities(rows: LocationCount[]) {
@@ -101,19 +113,10 @@ export function App() {
     <div style={styles.page}>
       <header style={styles.header}>
         <div>
-          <p style={styles.kicker}>Live occupancy</p>
           <h1 style={styles.title}>HustlerFit</h1>
+          <p style={styles.kicker}>Live occupancy</p>
           <p style={styles.sub}>
-            Real-time head counts by area — same data as the official{" "}
-            <a
-              href="https://www.connect2mycloud.com/Widgets/Data/locationCount?type=bar&key=7938fc89-a15c-492d-9566-12c961bc1f27"
-              target="_blank"
-              rel="noreferrer noopener"
-              style={styles.link}
-            >
-              Connect2
-            </a>{" "}
-            widget, refreshed automatically.
+            Track real-time usage of both the Nick and Bakke
           </p>
         </div>
         <div style={styles.controls}>
@@ -228,7 +231,7 @@ export function App() {
         >
           Connect2Concepts
         </a>
-        . Not affiliated with UW Recreation — unofficial fan view.
+        . Not affiliated with UW Recreation & Wellness.
       </footer>
     </div>
   );
